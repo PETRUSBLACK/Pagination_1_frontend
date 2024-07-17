@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Posts from './components/Posts';
+import Pagination from './components/Pagination';
 
   function App() {
   const [posts, setPosts] = useState([]);
@@ -29,6 +30,7 @@ import Posts from './components/Posts';
     <div className="container mt-5">
       <h1 className='text-primary mb-3'>My Blog</h1>
       <Posts posts={currentPosts} loading={loading}/>
+      <Pagination postsPerpage={postsPerPage} totalPosts={posts.length}/>
     </div>
   );
 }
