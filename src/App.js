@@ -15,6 +15,9 @@ import Pagination from './components/Pagination';
   const indexOfFirstPost = indexOfLastpost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastpost);
 
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   useEffect( () => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -30,7 +33,7 @@ import Pagination from './components/Pagination';
     <div className="container mt-5">
       <h1 className='text-primary mb-3'>My Blog</h1>
       <Posts posts={currentPosts} loading={loading}/>
-      <Pagination postsPerpage={postsPerPage} totalPosts={posts.length}/>
+      <Pagination postsPerpage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
     </div>
   );
 }
